@@ -1,6 +1,4 @@
 #include <iostream>
-#include <queue>
-#include <vector>
 using namespace std;
 bool v[505], visited[505][505];
 int main(void)
