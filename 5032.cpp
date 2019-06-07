@@ -4,17 +4,12 @@ int main(void)
 {
 	int e, f, c, result = 0;
 	cin >> e >> f >> c;
-	// 왜 예제를 보면 9개 0개 3개 인데 4개가 답이 되는거지??
 	e += f;
-	while (true)
+	while (e / c) // 0이되면 탈출
 	{
-		if (e - c < 0)
-			break;
-		else {
-			e -= c;
-			e += 1;
-			result++;
-		}
+		int num = e / c;
+		result += num;
+		e %= c; e += num;
 	}
 	printf("%d\n", result);
 	return 0;
