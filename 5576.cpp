@@ -1,28 +1,27 @@
 #include <iostream>
-#include <functional>
-#include <algorithm>
 using namespace std;
+int arr[3];
 int main(void)
 {
-	int wscore[10];
-	for (int i = 0; i < 10; i++) {
-		cin >> wscore[i];
+	int n, pch = -1;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> arr[i];
+		if (arr[i] > pch)
+			pch = arr[i];
 	}
 
-	int kscore[10];
-	for (int i = 0; i < 10; i++) {
-		cin >> kscore[i];
+	if (n == 2) {
+		for (int i = 1; i <= pch; i++) {
+			if (arr[0] % i == 0 && arr[1] % i == 0)
+				printf("%d\n", i);
+		}
 	}
-
-	sort(wscore, wscore + 10, greater<int>());
-	sort(kscore, kscore + 10, greater<int>());
-
-	int A = 0, B = 0;
-	for (int i = 0; i < 3; i++) {
-		A += wscore[i];
-		B += kscore[i];
+	else {
+		for (int i = 1; i <= pch; i++) {
+			if (arr[0] % i == 0 && arr[1] % i == 0 && arr[2] % i == 0)
+				printf("%d\n", i);
+		}
 	}
-	
-	printf("%d %d\n", A, B);
 	return 0;
 }
